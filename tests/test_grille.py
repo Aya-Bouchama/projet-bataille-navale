@@ -12,3 +12,13 @@ def test_tirer():
     g.tirer(1, 1) 
     index = 1 * g.colonnes + 1
     assert g.matrice[index] == "x"
+    
+    
+def test_str_grille():
+    g = Grille(2, 3)
+    attendu = "~~~\n~~~"
+    assert str(g) == attendu
+
+    g.tirer(1, 1)
+    attendu = "~~~\n~x~"
+    assert str(g) == attendu

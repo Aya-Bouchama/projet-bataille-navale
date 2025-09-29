@@ -1,5 +1,3 @@
-
-
 class Grille:
     def __init__(self, lignes, colonnes):
         self.lignes = lignes
@@ -7,12 +5,21 @@ class Grille:
         self.vide = "~"  
         self.matrice = [self.vide] * (lignes * colonnes)
 
-    def afficher(self):
+    def __str__(self):
+        lignes = []
         for l in range(self.lignes):
             ligne = self.matrice[l * self.colonnes:(l + 1) * self.colonnes]
-            print(" ".join(ligne))
+            lignes.append("".join(ligne))
+        return "\n".join(lignes)
+
+    def afficher(self):
+        print(self.__str__())
 
     def tirer(self, ligne, colonne):
         index = ligne * self.colonnes + colonne
         self.matrice[index] = "x"
+        
+    
+
+
 
