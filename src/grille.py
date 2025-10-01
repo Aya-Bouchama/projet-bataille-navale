@@ -29,7 +29,7 @@ class Grille:
        
         for (l, c) in bateau.positions:
             index = l * self.colonnes + c
-            self.matrice[index] = "⛵"
+            self.matrice[index] = bateau.marque
         return True
 
 

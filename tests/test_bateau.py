@@ -1,5 +1,7 @@
 from src.bateau import Bateau
 from src.grille import Grille
+from src.bateau import PorteAvion, Croiseur, Torpilleur, SousMarin
+
 
 def test_creation_bateau_obligatoire():
     b = Bateau(2, 3)
@@ -36,3 +38,24 @@ def test_bateau_coule():
     
     g.tirer(1, 1)
     assert b.coule(g) is True
+    
+
+def test_porte_avion():
+    g = Grille(5, 5)
+    g.ajoute(PorteAvion(0, 0))
+    assert g.matrice[0:4] == ["🚢", "🚢", "🚢", "🚢"]
+
+def test_croiseur():
+    g = Grille(5, 5)
+    g.ajoute(Croiseur(1, 0))
+    assert g.matrice[5:8] == ["⛴", "⛴", "⛴"]
+
+def test_torpilleur():
+    g = Grille(5, 5)
+    g.ajoute(Torpilleur(2, 0))
+    assert g.matrice[10:12] == ["🚣", "🚣"]
+
+def test_sous_marin():
+    g = Grille(5, 5)
+    g.ajoute(SousMarin(3, 0))
+    assert g.matrice[15:17] == ["🐟", "🐟"]
