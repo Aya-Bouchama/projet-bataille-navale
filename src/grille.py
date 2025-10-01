@@ -1,3 +1,5 @@
+from src.bateau import Bateau
+
 class Grille:
     def __init__(self, lignes, colonnes):
         self.lignes = lignes
@@ -20,6 +22,15 @@ class Grille:
         self.matrice[index] = "x"
         
     
+    def ajoute(self, bateau: Bateau):
+        for (l, c) in bateau.positions:
+            if not (0 <= l < self.lignes and 0 <= c < self.colonnes):
+                return False
+       
+        for (l, c) in bateau.positions:
+            index = l * self.colonnes + c
+            self.matrice[index] = "⛵"
+        return True
 
 
 
