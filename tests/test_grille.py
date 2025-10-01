@@ -39,3 +39,14 @@ def test_ajoute_bateau_depasse():
 
     g.ajoute(Bateau(1, 0, longueur=4, vertical=True))
     assert g.matrice == ['~', '~', '~', '~', '~', '~']
+    
+
+def test_tirer_defaut():
+    g = Grille(2, 2)
+    g.tirer(0, 1) 
+    assert g.matrice == ["~", "x", "~", "~"]
+
+def test_tirer_personnalise():
+    g = Grille(2, 2)
+    g.tirer(1, 0, touche="💥") 
+    assert g.matrice == ["~", "~", "💥", "~"]

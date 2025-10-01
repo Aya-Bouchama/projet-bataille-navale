@@ -17,9 +17,9 @@ class Grille:
     def afficher(self):
         print(self.__str__())
 
-    def tirer(self, ligne, colonne):
+    def tirer(self, ligne, colonne, touche="x"):
         index = ligne * self.colonnes + colonne
-        self.matrice[index] = "x"
+        self.matrice[index] = touche
         
     
     def ajoute(self, bateau: Bateau):
