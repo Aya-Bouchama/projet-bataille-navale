@@ -12,3 +12,6 @@ class Bateau:
             return [(self.ligne + i, self.colonne) for i in range(self.longueur)]
         else:
             return [(self.ligne, self.colonne + i) for i in range(self.longueur)]
+    
+    def chevauche(self, autre):
+        return any(pos in autre.positions for pos in self.positions)
