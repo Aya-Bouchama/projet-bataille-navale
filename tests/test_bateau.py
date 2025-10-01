@@ -13,3 +13,11 @@ def test_creation_bateau_facultatif():
     assert b.colonne == 1
     assert b.longueur == 3
     assert b.vertical is True
+    
+def test_positions_horizontales():
+    b = Bateau(2, 3, longueur=3)
+    assert b.positions() == [(2, 3), (2, 4), (2, 5)]
+
+def test_positions_verticales():
+    b = Bateau(2, 3, longueur=3, vertical=True)
+    assert b.positions() == [(2, 3), (3, 3), (4, 3)]
