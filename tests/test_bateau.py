@@ -1,4 +1,5 @@
 from src.bateau import Bateau
+from src.grille import Grille
 
 def test_creation_bateau_obligatoire():
     b = Bateau(2, 3)
@@ -21,3 +22,17 @@ def test_positions_horizontales():
 def test_positions_verticales():
     b = Bateau(2, 3, longueur=3, vertical=True)
     assert b.positions == [(2, 3), (3, 3), (4, 3)]
+
+
+def test_bateau_coule():
+    g = Grille(3, 3)
+    b = Bateau(1, 0, longueur=2, vertical=False)
+    
+    g.ajoute(b)
+    assert b.coule(g) is False
+    
+    g.tirer(1, 0)
+    assert b.coule(g) is False
+    
+    g.tirer(1, 1)
+    assert b.coule(g) is True

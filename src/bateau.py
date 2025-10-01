@@ -15,3 +15,7 @@ class Bateau:
     
     def chevauche(self, autre):
         return any(pos in autre.positions for pos in self.positions)
+    
+    
+    def coule(self, grille):
+        return all(grille.matrice[l * grille.colonnes + c] == "x" for (l, c) in self.positions)
