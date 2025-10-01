@@ -6,6 +6,7 @@ class Bateau:
         self.vertical = vertical
     
     
+    @property
     def positions(self):
         if self.vertical:
             return [(self.ligne + i, self.colonne) for i in range(self.longueur)]
