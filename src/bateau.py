@@ -19,8 +19,9 @@ class Bateau:
     
     
     def coule(self, grille):
-        return all(grille.matrice[l * grille.colonnes + c] == "x" for (l, c) in self.positions)
-    
+        return all(grille.matrice[l * grille.colonnes + c] in ["x", "💣"]
+                for (l, c) in self.positions)
+
     
 class PorteAvion(Bateau):
     def __init__(self, ligne, colonne, vertical=False):
